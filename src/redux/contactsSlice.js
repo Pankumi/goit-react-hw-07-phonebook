@@ -11,25 +11,25 @@ const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
 
+  // extraReducers - Зовнішній Reducers
+  // fetchContacts - назва санки, pending/fulfilled/rejected - статус кий повертає санка
+  // колбек ф. (state, action) => { мутування стейту }
   extraReducers: builder =>
     builder
 
       .addCase(fetchContacts.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.items = [...payload].reverse();
-        console.log(payload);
       })
 
       .addCase(addContact.fulfilled, (state, { payload }) => {
-        state.items = [payload, ...state.items];
         state.isLoading = false;
-        console.log(payload);
+        state.items = [payload, ...state.items];
       })
 
       .addCase(deleteContact.fulfilled, (state, { payload }) => {
-        state.items = state.items.filter(item => item.id !== payload.id);
         state.isLoading = false;
-        console.log(payload);
+        state.items = state.items.filter(item => item.id !== payload.id);
       })
 
       .addMatcher(
