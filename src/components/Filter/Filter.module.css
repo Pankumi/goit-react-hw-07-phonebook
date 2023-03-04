@@ -1,8 +1,7 @@
-.filterName {
-  margin: 8px auto 24px;
-}
-
 .filterLabel {
   margin-bottom: 8px;
 }
 
+.filterName {
+  margin: 8px 0 24px 15px;
+}

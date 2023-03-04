@@ -5,13 +5,13 @@ const instance = axios.create({
   baseURL: 'https://6402f1f8302b5d671c436fc5.mockapi.io',
 });
 
-export const getContacts = createAsyncThunk(
+// export const getContacts = createAsyncThunk(
+export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
   async (_, thunkApi) => {
     try {
       const { data } = await instance.get('/contacts');
       return data;
-      //   console.log(data);
     } catch (error) {
       return thunkApi.rejectWithValue(error.message);
     }
