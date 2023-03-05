@@ -19,27 +19,25 @@ export const ContactList = () => {
   };
 
   return (
-    <>
-      <div>
-        {isLoading && <Loader />}
-        <ul>
-          {contacts.map(contact => (
-            <li key={contact.id} className={css.contactItem}>
-              <div>
-                <span>{contact.name} : </span>
-                <span>{contact.number}</span>
-              </div>
-              <button
-                type="button"
-                className={css.btnItem}
-                onClick={() => handleDelete(contact.id)}
-              >
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </>
+    <div>
+      {isLoading && <Loader />}
+      <ul>
+        {contacts.map(contact => (
+          <li key={contact.id} className={css.contactItem}>
+            <div>
+              <span>{contact.name} : </span>
+              <span>{contact.number}</span>
+            </div>
+            <button
+              type="button"
+              className={css.btnItem}
+              onClick={() => handleDelete(contact.id)}
+            >
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
